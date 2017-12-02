@@ -11,12 +11,6 @@ defmodule Aoc2017.Day2 do
     |> Enum.sum
   end
 
-  def checksum(numbers) when is_binary(numbers) do
-    numbers
-    |> String.split()
-    |> Enum.map(&int_val/1)
-    |> checksum
-  end
   def checksum([first | rest]) do
     checksum(rest, first, first)
   end
@@ -24,12 +18,6 @@ defmodule Aoc2017.Day2 do
     checksum(rest, min(a, min), max(a, max))
   end
   def checksum([], min, max), do: max - min
-
-  def int_val(str) do
-    str
-    |> Integer.parse
-    |> elem(0)
-  end
 
   def part2(n) when is_binary(n) do
     n
@@ -42,12 +30,6 @@ defmodule Aoc2017.Day2 do
     |> Enum.sum
   end
 
-  def divisor(numbers) when is_binary(numbers) do
-    numbers
-    |> String.split()
-    |> Enum.map(&int_val/1)
-    |> divisor
-  end
   def divisor([]), do: nil
   def divisor([a | rest]) do
     case divisor(a, rest) do

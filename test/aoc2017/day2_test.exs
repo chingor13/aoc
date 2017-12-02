@@ -7,10 +7,6 @@ defmodule Aoc2017Test.Day2 do
     assert 8 == Aoc2017.Day2.checksum([5, 1, 9, 5])
   end
 
-  test "checksum string" do
-    assert 8 == Aoc2017.Day2.checksum("5 1 9 5")
-  end
-
   test "example 1" do
     assert 18 == Aoc2017.Day2.part1([
       [5, 1, 9, 5],
@@ -21,8 +17,7 @@ defmodule Aoc2017Test.Day2 do
 
   test "part1" do
     res = "data/day2.txt"
-    |> File.read!
-    |> String.trim
+    |> Aoc2017.Input.read_number_matrix()
     |> Aoc2017.Day2.part1
 
     IO.puts "Day 2 part 1: #{res}"
@@ -48,11 +43,9 @@ defmodule Aoc2017Test.Day2 do
     ])
   end
 
-
   test "part2" do
     res = "data/day2.txt"
-    |> File.read!
-    |> String.trim
+    |> Aoc2017.Input.read_number_matrix()
     |> Aoc2017.Day2.part2
 
     IO.puts "Day 2 part 2: #{res}"
