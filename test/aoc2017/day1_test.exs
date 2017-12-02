@@ -1,6 +1,7 @@
 defmodule Aoc2017Test.Day1 do
   use ExUnit.Case
   doctest Aoc2017.Day1
+  @moduletag :day1
 
   test "example 1" do
     assert 3 == Aoc2017.Day1.part1(1122)
