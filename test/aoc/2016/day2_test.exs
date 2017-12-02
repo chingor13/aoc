@@ -1,6 +1,7 @@
 defmodule Aoc2016.Day2Test do
   use ExUnit.Case
   doctest Aoc2016.Day2
+  alias Aoc2016.Day2
   @moduletag [day2: true, year2016: true]
 
   test "example1" do
@@ -10,22 +11,22 @@ defmodule Aoc2016.Day2Test do
       "LURDL",
       "UUUUD"
     ]
-    codepad = %Aoc2016.Day2{}
-    assert Aoc2016.Day2.code(codepad, instructions) == "1985"
+    codepad = %Day2{}
+    assert Day2.code(codepad, instructions) == "1985"
   end
 
   test "single command" do
-    codepad = %Aoc2016.Day2{}
-    assert Aoc2016.Day2.code(codepad, "ULL") == "1"
+    codepad = %Day2{}
+    assert Day2.code(codepad, "ULL") == "1"
   end
 
   test "single command 2" do
-    codepad = %Aoc2016.Day2{}
-    assert Aoc2016.Day2.code(codepad, "ULL") == "1"
+    codepad = %Day2{}
+    assert Day2.code(codepad, "ULL") == "1"
   end
 
   test "no command" do
-    codepad = %Aoc2016.Day2{}
-    assert Aoc2016.Day2.code(codepad, "") == "5"
+    codepad = %Day2{}
+    assert Day2.code(codepad, "") == "5"
   end
 end

@@ -1,6 +1,7 @@
 defmodule Aoc2016.Day8Test do
   use ExUnit.Case
   doctest Aoc2016.Day8
+  alias Aoc2016.Day8
   @moduletag [day8: true, year2016: true]
 
   test "sample data" do
@@ -11,8 +12,8 @@ defmodule Aoc2016.Day8Test do
       [0, 0, 0, 0, 0, 0, 0]
     ]
 
-    assert expected == Aoc2016.Day8.rect(m, 3, 2)
-    assert expected == Aoc2016.Day8.command(m, "rect 3x2")
+    assert expected == Day8.rect(m, 3, 2)
+    assert expected == Day8.command(m, "rect 3x2")
   end
 
   test "rotate column" do
@@ -27,8 +28,8 @@ defmodule Aoc2016.Day8Test do
       [0, 1, 0, 0, 0, 0, 0]
     ]
 
-    assert expected == Aoc2016.Day8.rotate_column(m, 1, 1)
-    assert expected == Aoc2016.Day8.command(m, "rotate column x=1 by 1")
+    assert expected == Day8.rotate_column(m, 1, 1)
+    assert expected == Day8.command(m, "rotate column x=1 by 1")
   end
 
   test "rotate row" do
@@ -43,8 +44,8 @@ defmodule Aoc2016.Day8Test do
       [0, 1, 0, 0, 0, 0, 0]
     ]
 
-    assert expected == Aoc2016.Day8.rotate_row(m, 0, 4)
-    assert expected == Aoc2016.Day8.command(m, "rotate row y=0 by 4")
+    assert expected == Day8.rotate_row(m, 0, 4)
+    assert expected == Day8.command(m, "rotate row y=0 by 4")
   end
 
   test "rotate with overflow" do
@@ -58,8 +59,8 @@ defmodule Aoc2016.Day8Test do
       [1, 0, 1, 0, 0, 0, 0],
       [0, 1, 0, 0, 0, 0, 0]
     ]
-    assert expected == Aoc2016.Day8.rotate_column(m, 1, 1)
-    assert expected == Aoc2016.Day8.command(m, "rotate column x=1 by 1")
+    assert expected == Day8.rotate_column(m, 1, 1)
+    assert expected == Day8.command(m, "rotate column x=1 by 1")
   end
 
   test "num lit pixels" do
