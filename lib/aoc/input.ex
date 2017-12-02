@@ -1,4 +1,4 @@
-defmodule Aoc2017.Input do
+defmodule Aoc.Input do
 
   def read_matrix(file) do
     file
