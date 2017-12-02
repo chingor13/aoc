@@ -1,40 +1,37 @@
 defmodule Aoc2017.Day1 do
 
-  def part1(n) when is_integer(n), do: part1("#{n}")
-  def part1(n) do
-    digits = String.split(n, "", trim: true)
-    first = List.first(digits)
+  def part1(n) when is_integer(n) do
+    n
+    |> Integer.digits()
+    |> part1()
+  end
+  def part1(digits) do
+    part1(digits, List.first(digits))
+  end
+  def part1([], _), do: 0
+  def part1([a], a), do: a
+  def part1([i | rest = [i | _]], first) do
+    i + part1(rest, first)
+  end
+  def part1([_ | rest], first), do: part1(rest, first)
 
-    value(digits, first)
+  def part2(n) when is_integer(n) do
+    n
+    |> Integer.digits
+    |> part2
+  end
+  def part2(digits) do
+    {group1, group2} = Enum.split(digits, div(length(digits), 2))
+
+    part2(group1, group2)
   end
 
-  def value([], _), do: 0
-  def value([a], a), do: int_val(a)
-  def value([i | rest = [i | _]], first) do
-    int_val(i) + value(rest, first)
+  def part2([], []), do: 0
+  def part2([a | rest], [a | rest2]) do
+    2 * a + part2(rest, rest2)
   end
-  def value([_ | rest], first), do: value(rest, first)
-
-  defp int_val(a) do
-    a
-    |> Integer.parse
-    |> elem(0)
-  end
-
-  def part2(n) when is_integer(n), do: part2("#{n}")
-  def part2(n) do
-    digits = String.split(n, "", trim: true)
-    {group1, group2} = Enum.split(digits, Integer.floor_div(length(digits), 2))
-
-    value2(group1, group2)
-  end
-
-  def value2([], []), do: 0
-  def value2([a | rest], [a | rest2]) do
-    2 * int_val(a) + value2(rest, rest2)
-  end
-  def value2([_ | rest], [_ | rest2]) do
-    value2(rest, rest2)
+  def part2([_ | rest], [_ | rest2]) do
+    part2(rest, rest2)
   end
 
 end

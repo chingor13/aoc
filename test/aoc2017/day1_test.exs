@@ -21,8 +21,7 @@ defmodule Aoc2017Test.Day1 do
 
   test "part1" do
     res = "data/day1.txt"
-    |> File.read!
-    |> String.trim
+    |> Aoc2017.Input.read_digits
     |> Aoc2017.Day1.part1
 
     IO.puts "Day 1 part 1: #{res}"
@@ -50,8 +49,7 @@ defmodule Aoc2017Test.Day1 do
 
   test "part2" do
     res = "data/day1.txt"
-    |> File.read!
-    |> String.trim
+    |> Aoc2017.Input.read_digits
     |> Aoc2017.Day1.part2
 
     IO.puts "Day 1 part 2: #{res}"
